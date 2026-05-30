@@ -1,4 +1,4 @@
-// Modified for the Euler AMR project - the portfolio version
+// Modified for the Euler AMR project - public project version
 #include <AMReX_FArrayBox.H>
 #include <AMReX_Array.H>
 #include <AMReX_ParmParse.H>

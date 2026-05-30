@@ -1,4 +1,4 @@
-// Project-specific parameter definitions for the portfolio version
+// Project-specific parameter definitions for the public project version
 #ifndef PROB_PARM_H_
 #define PROB_PARM_H_
 

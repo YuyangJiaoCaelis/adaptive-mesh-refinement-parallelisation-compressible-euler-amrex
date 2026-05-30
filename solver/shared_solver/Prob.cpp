@@ -1,4 +1,4 @@
-// Project-specific problem setup for the portfolio version
+// Project-specific problem setup for the public project version
 #include "Prob.H"
 
 #include <AMReX_ParmParse.H>

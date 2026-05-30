@@ -45,8 +45,8 @@ The final technical write-up is included at the repository root:
 |   `-- quadrant_scaling/     # Task 3: AMR/MPI timing and accuracy studies
 |-- results/                 # Frozen report figures and compact evidence tables
 |-- report/                  # LaTeX report source and report figures
-|-- docs/                    # Resume-facing project summary
-|-- technical_report.pdf     # Final portfolio technical report
+|-- docs/                    # Project summary and notes
+|-- technical_report.pdf     # Final technical report
 |-- Makefile                 # Build, check, and clean helpers
 |-- reproduce_report_data.sh # Full report-data reproduction workflow
 `-- requirements.txt
@@ -123,9 +123,9 @@ cd ../quadrant_scaling
 - Ran Python bytecode checks for analysis scripts.
 - Ran shell syntax checks for task runner scripts.
 - Confirmed the local final report contains the latest `33.33x` Task 3 repeated-configuration result.
-- Regenerated the portfolio PDF from the cleaned LaTeX source.
+- Regenerated the public PDF from the cleaned LaTeX source.
 - Removed build products, logs, caches, old drafts, audit files, and private submission evidence from the tracked repo.
 
-## Resume Summary
+## Project Summary
 
 Built and evaluated a C++/MPI compressible Euler solver on AMReX with AMR, HLL fluxes, MUSCL reconstruction, SSPRK2 time integration, and positivity safeguards; validated against 1D/2D shock benchmarks and demonstrated a `33.33x` repeated AMR+MPI speedup over a matched uniform-grid serial baseline.

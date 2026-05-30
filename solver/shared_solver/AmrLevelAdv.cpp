@@ -1,4 +1,4 @@
-// Modified for the Euler AMR project - the portfolio version
+// Modified for the Euler AMR project - public project version
 #include <AMReX_VisMF.H>
 #include <AMReX_TagBox.H>
 #include <AMReX_ParmParse.H>

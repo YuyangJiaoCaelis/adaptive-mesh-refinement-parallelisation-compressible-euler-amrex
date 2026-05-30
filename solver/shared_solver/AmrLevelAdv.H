@@ -1,4 +1,4 @@
-// Modified for the Euler AMR project - the portfolio version
+// Modified for the Euler AMR project - public project version
 #ifndef _AmrLevelAdv_H_
 #define _AmrLevelAdv_H_
 

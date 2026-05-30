@@ -1,6 +1,6 @@
 # Changes From Tutorial
 
-Modified content in this repository is attributable to the portfolio version.
+Modified content in this repository is attributable to this public project version.
 
 This solver package is based on the AMReX advection tutorial used as the recommended starting point in the assignment brief.
 

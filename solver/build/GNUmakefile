@@ -1,4 +1,4 @@
-# Minimal AMReX build file for the portfolio version
+# Minimal AMReX build file for the public project version
 AMREX_HOME ?= /path/to/amrex
 USE_EB = FALSE
 PRECISION  = DOUBLE
