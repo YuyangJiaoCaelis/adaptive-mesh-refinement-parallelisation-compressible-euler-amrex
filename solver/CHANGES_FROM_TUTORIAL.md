@@ -1,8 +1,8 @@
 # Changes From Tutorial
 
-Modified content in this submission pack is attributable to the portfolio version.
+Modified content in this repository is attributable to the portfolio version.
 
-This code pack is based on the AMReX advection tutorial used as the recommended starting point in the assignment brief.
+This solver package is based on the AMReX advection tutorial used as the recommended starting point in the assignment brief.
 
 ## Tutorial base
 
@@ -14,7 +14,7 @@ The main AMR framework files were adapted from:
 - `amrex-tutorials/ExampleCodes/Amr/Advection_AmrLevel/Exec/UniformVelocity/Adv_prob.cpp`
 - `amrex-tutorials/ExampleCodes/Amr/Advection_AmrLevel/Exec/UniformVelocity/Prob_Parm.H`
 
-The submission pack keeps only the files needed to reproduce the data quoted in the report.
+This repository keeps only the files needed to reproduce the data quoted in the report.
 
 ## Main solver changes
 

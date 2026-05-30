@@ -30,7 +30,7 @@ This repository is prepared as a public portfolio version of the assignment work
 ## Repository Layout
 
 ```text
-code_submission/
+solver/
   build/                 Minimal AMReX GNU Make build files
   shared_solver/         Final C++ solver sources
   task1/                 1D Riemann and smooth-test inputs/scripts/analysis
@@ -70,14 +70,14 @@ export AMREX_HOME="$(pwd)/../amrex"
 ## Build
 
 ```bash
-cd code_submission/build
+cd solver/build
 make -j8 AMREX_HOME="$AMREX_HOME"
 ```
 
 This creates:
 
 ```text
-code_submission/build/main2d.gnu.MPI.ex
+solver/build/main2d.gnu.MPI.ex
 ```
 
 Generated executables and AMReX build object trees are ignored by git.
@@ -88,7 +88,7 @@ Run these from a built tree. The scripts write self-contained result directories
 
 ```bash
 # Task 1: 1D Riemann validation and smooth convergence checks
-cd code_submission/task1
+cd solver/task1
 ./scripts/run_toro1d_uniform_amr.sh
 ./scripts/run_smooth_entropy_convergence.sh
 

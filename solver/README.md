@@ -1,6 +1,6 @@
-# Code Submission README
+# Solver and Reproducibility Package
 
-This code folder contains the modified source files, run scripts, and analysis scripts used to reproduce the data quoted in the report for the project report.
+This folder contains the final solver source files, run scripts, and analysis scripts used to reproduce the results quoted in the written report.
 
 ## What is included
 
@@ -10,9 +10,9 @@ This code folder contains the modified source files, run scripts, and analysis s
 - `CHANGES_FROM_TUTORIAL.md`: provenance note describing which parts were adapted from the AMReX tutorial and which parts were written for this project
 - `README_REPORT_SETTINGS.md`: note explaining that the task scripts override the base input templates where needed
 
-## Build assumptions
+## Build Assumptions
 
-- The assessors may assume Linux.
+- Linux is the recommended build target.
 - AMReX is required and should be available through the `AMREX_HOME` environment variable.
 - The build uses GNU Make and the trimmed files in `build/`.
 
@@ -47,9 +47,9 @@ The report settings are reproduced by the task runner scripts:
 
 Each script writes a self-contained results directory and then calls the matching analysis scripts where required.
 
-## Notes for assessors
+## Notes
 
 - The task scripts set the report settings directly.
 - The base templates in `task1/inputs`, `task2/inputs`, and `task3/inputs` are included for reference; the task scripts override them where needed.
 - AMReX plotting tools such as `fextract.gnu.ex` and `fcompare.gnu.ex` are expected under `AMREX_HOME/Tools/Plotfile/`.
-- Only the files needed to reproduce the quoted report data are included in this pack.
+- Only the files needed to reproduce the quoted report data are included in this package.
