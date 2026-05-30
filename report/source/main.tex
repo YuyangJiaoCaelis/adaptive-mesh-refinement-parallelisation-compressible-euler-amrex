@@ -52,7 +52,7 @@
 
 \title{Adaptive Mesh Refinement and Parallelisation for the Compressible Euler Equations Using AMReX}
 
-\author{Portfolio version}
+\author{Yuyang Jiao}
 
 \begin{abstract}
 This report evaluates whether block-structured adaptive mesh refinement (AMR) in AMReX preserves credible solution behaviour for the compressible Euler equations while reducing time-to-solution under matched finest-spacing comparisons. The solver uses an HLL approximate Riemann solver with Davis wave-speed bounds for spatial fluxes, MUSCL reconstruction with a componentwise minmod limiter, and SSPRK2 (Heun's method) time integration. It enforces positivity with density/pressure floors during reconstruction and a per-stage energy reset when the pressure floor activates (strictly non-conservative only in cells where the reset activates).
