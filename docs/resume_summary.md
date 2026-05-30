@@ -2,7 +2,7 @@
 
 ## Link Label
 
-AMReX Euler AMR/MPI Solver
+Adaptive Mesh Refinement and Parallelisation for Compressible Euler Using AMReX
 
 ## Short Project Description
 

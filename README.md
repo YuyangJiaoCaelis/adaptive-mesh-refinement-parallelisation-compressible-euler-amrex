@@ -1,4 +1,4 @@
-# AMReX Euler AMR/MPI Solver
+# Adaptive Mesh Refinement and Parallelisation for the Compressible Euler Equations Using AMReX
 
 Finite-volume solver and reproducibility pack for a compressible Euler study using [AMReX](https://github.com/AMReX-Codes/amrex). The project evaluates shock-capturing accuracy, adaptive mesh refinement (AMR), and single-node MPI scaling for one- and two-dimensional Euler benchmarks.
 
