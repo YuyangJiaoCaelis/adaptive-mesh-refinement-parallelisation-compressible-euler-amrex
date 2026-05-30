@@ -4,6 +4,13 @@ Finite-volume solver and reproducibility package for a compressible Euler study 
 
 This public-facing repository keeps the final AMReX solver, experiment runners, technical report source, report figures, and compact evidence tables. Private submission records and the local AMReX checkout are intentionally excluded from git.
 
+## Report
+
+The final technical write-up is included at the repository root:
+
+- [technical_report.pdf](technical_report.pdf)
+- [report/source/main.tex](report/source/main.tex)
+
 ## Highlights
 
 - Implemented a 2D compressible Euler solver in C++ on AMReX's block-structured AMR framework.
@@ -39,6 +46,7 @@ This public-facing repository keeps the final AMReX solver, experiment runners, 
 |-- results/                 # Frozen report figures and compact evidence tables
 |-- report/                  # LaTeX report source and report figures
 |-- docs/                    # Resume-facing project summary
+|-- technical_report.pdf     # Final portfolio technical report
 |-- Makefile                 # Build, check, and clean helpers
 |-- reproduce_report_data.sh # Full report-data reproduction workflow
 `-- requirements.txt
@@ -115,6 +123,7 @@ cd ../quadrant_scaling
 - Ran Python bytecode checks for analysis scripts.
 - Ran shell syntax checks for task runner scripts.
 - Confirmed the local final report contains the latest `33.33x` Task 3 repeated-configuration result.
+- Regenerated the portfolio PDF from the cleaned LaTeX source.
 - Removed build products, logs, caches, old drafts, audit files, and private submission evidence from the tracked repo.
 
 ## Resume Summary

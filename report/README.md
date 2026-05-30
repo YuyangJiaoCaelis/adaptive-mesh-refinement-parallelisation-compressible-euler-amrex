@@ -6,4 +6,4 @@ This folder contains the LaTeX source and report figures for the written technic
 - `source/references.bib`: bibliography.
 - `source/`: figures included by the report source.
 
-The local generated PDF is ignored so the public repository stays focused on source, figures, and reproducible evidence.
+The root-level `../technical_report.pdf` is the rendered portfolio copy linked from the main README. The local `report/report.pdf` copy is ignored and only kept for convenience.
