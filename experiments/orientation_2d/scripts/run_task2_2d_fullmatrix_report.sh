@@ -3,13 +3,14 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TASK_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-CODE_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+SOLVER_ROOT="${REPO_ROOT}/solver"
 cd "${TASK_DIR}"
 
-EXE="${CODE_ROOT}/build/main2d.gnu.MPI.ex"
+EXE="${SOLVER_ROOT}/build/main2d.gnu.MPI.ex"
 if [[ ! -x "${EXE}" ]]; then
   echo "ERROR: executable not found: ${EXE}" >&2
-  echo "Build first with: make -j8" >&2
+  echo "Build first with: make -C \"${SOLVER_ROOT}/build\" -j8 AMREX_HOME=/path/to/amrex" >&2
   exit 1
 fi
 
@@ -148,7 +149,7 @@ Task-2 2D matched-resolution setup:
 - amr.blocking_factor = 8 divides both 400 and 200 exactly.
 EOF
 
-python3 "${SCRIPT_DIR}/analyze_task2_2d_fullmatrix.py" --results-dir "${RESULTS_DIR}" \
+python3 "${TASK_DIR}/analysis/analyze_task2_2d_fullmatrix.py" --results-dir "${RESULTS_DIR}" \
   > "${RESULTS_DIR}/logs/analysis.log" 2>&1
 
 echo "All runs and analysis completed."

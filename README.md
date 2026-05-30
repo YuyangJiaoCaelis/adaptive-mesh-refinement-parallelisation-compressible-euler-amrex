@@ -1,8 +1,8 @@
 # Adaptive Mesh Refinement and Parallelisation for the Compressible Euler Equations Using AMReX
 
-Finite-volume solver and reproducibility pack for a compressible Euler study using [AMReX](https://github.com/AMReX-Codes/amrex). The project evaluates shock-capturing accuracy, adaptive mesh refinement (AMR), and single-node MPI scaling for one- and two-dimensional Euler benchmarks.
+Finite-volume solver and reproducibility package for a compressible Euler study using [AMReX](https://github.com/AMReX-Codes/amrex). The project evaluates shock-capturing accuracy, adaptive mesh refinement (AMR), and single-node MPI scaling for one- and two-dimensional Euler benchmarks.
 
-This repository is prepared as a public portfolio version of the assignment work. Private submission records and the local AMReX checkout are intentionally excluded from git.
+This public-facing repository keeps the final AMReX solver, experiment runners, technical report source, report figures, and compact evidence tables. Private submission records and the local AMReX checkout are intentionally excluded from git.
 
 ## Highlights
 
@@ -17,33 +17,31 @@ This repository is prepared as a public portfolio version of the assignment work
 
 ### AMR Runtime Advantage
 
-![AMR versus uniform runtime](final_results/task3/report_pack_task3/AMR_vs_uniform_time.png)
+![AMR versus uniform runtime](results/quadrant_scaling/AMR_vs_uniform_time.png)
 
 ### MPI Scaling Saturation
 
-![Speedup versus cores](final_results/task3/report_pack_task3/speedup_vs_cores.png)
+![Speedup versus cores](results/quadrant_scaling/speedup_vs_cores.png)
 
 ### 1D Validation Example
 
-![Toro test 1 AMR versus uniform](final_results/task1/report_pack_task1/fig_toro1d_test1_amr_vs_uniform.png)
+![Toro test 1 AMR versus uniform](results/riemann_1d/fig_toro1d_test1_amr_vs_uniform.png)
 
 ## Repository Layout
 
 ```text
-solver/
-  build/                 Minimal AMReX GNU Make build files
-  shared_solver/         Final C++ solver sources
-  task1/                 1D Riemann and smooth-test inputs/scripts/analysis
-  task2/                 2D orientation and diagonal-split inputs/scripts/analysis
-  task3/                 Quadrant timing, accuracy, and scaling inputs/scripts/analysis
-
-final_results/
-  task1/                 Frozen 1D validation result pack
-  task2/                 Frozen 2D orientation/diagonal result pack
-  task3/                 Frozen revised timing/accuracy result pack
-
-final_writeup/
-  overleaf_source/       Portfolio LaTeX source, bibliography, and report figures
+.
+|-- solver/                  # Final AMReX C++ solver source and build files
+|-- experiments/             # Reproduction scripts, inputs, and analysis code
+|   |-- riemann_1d/           # Task 1: Toro Riemann and smooth convergence checks
+|   |-- orientation_2d/       # Task 2: orientation and diagonal split tests
+|   `-- quadrant_scaling/     # Task 3: AMR/MPI timing and accuracy studies
+|-- results/                 # Frozen report figures and compact evidence tables
+|-- report/                  # LaTeX report source and report figures
+|-- docs/                    # Resume-facing project summary
+|-- Makefile                 # Build, check, and clean helpers
+|-- reproduce_report_data.sh # Full report-data reproduction workflow
+`-- requirements.txt
 ```
 
 ## Requirements
@@ -70,8 +68,7 @@ export AMREX_HOME="$(pwd)/../amrex"
 ## Build
 
 ```bash
-cd solver/build
-make -j8 AMREX_HOME="$AMREX_HOME"
+make build AMREX_HOME="$AMREX_HOME"
 ```
 
 This creates:
@@ -84,27 +81,33 @@ Generated executables and AMReX build object trees are ignored by git.
 
 ## Reproducing The Report Workflows
 
-Run these from a built tree. The scripts write self-contained result directories under their task folders.
+The full workflow rebuilds the solver and runs the report-data campaigns:
+
+```bash
+./reproduce_report_data.sh
+```
+
+The high-resolution Task 3 timing scripts are expensive. The frozen outputs used in the written report are already included in `results/`.
+
+Individual workflows can also be run from a built tree. The scripts write self-contained result directories under their experiment folders.
 
 ```bash
 # Task 1: 1D Riemann validation and smooth convergence checks
-cd solver/task1
+cd experiments/riemann_1d
 ./scripts/run_toro1d_uniform_amr.sh
 ./scripts/run_smooth_entropy_convergence.sh
 
 # Task 2: 2D orientation and diagonal tests
-cd ../task2
+cd ../orientation_2d
 ./scripts/run_task2_2d_fullmatrix_report.sh
 
 # Task 3: quadrant timing and accuracy studies
-cd ../task3
+cd ../quadrant_scaling
 ./scripts/run_task3_quadrant_matrix.sh
 ./scripts/run_task3_highres_refresh.sh
 ./scripts/run_task3_accuracy_refresh.sh
 ./scripts/run_task3_diagnostics.sh
 ```
-
-The high-resolution Task 3 timing scripts are expensive. The frozen outputs used in the written report are already included in `final_results/`.
 
 ## Verification Performed
 

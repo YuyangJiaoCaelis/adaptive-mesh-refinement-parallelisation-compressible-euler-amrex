@@ -3,10 +3,11 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TASK_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-CODE_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+SOLVER_ROOT="${REPO_ROOT}/solver"
 cd "${TASK_DIR}"
 
-EXE="${CODE_ROOT}/build/main2d.gnu.MPI.ex"
+EXE="${SOLVER_ROOT}/build/main2d.gnu.MPI.ex"
 if [[ ! -x "${EXE}" ]]; then
   echo "ERROR: executable not found: ${EXE}" >&2
   exit 1
@@ -156,7 +157,7 @@ PY
   echo "DONE effN=${eff_n}"
 done
 
-python3 "${SCRIPT_DIR}/smooth_amr_convergence.py" \
+python3 "${TASK_DIR}/analysis/smooth_amr_convergence.py" \
   --results-dir "${RESULTS_DIR}" \
   --stop-time "${STOP_TIME}" \
   --x0 "${X0}" \

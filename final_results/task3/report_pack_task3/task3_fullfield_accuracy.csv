@@ -1,5 +1,0 @@
-family,effective_N,reference,L1_rho,order_L1_rho,L2_rho,order_L2_rho
-AMR,1536,/Users/yuyangjiao/Desktop/AMReX_Euler_NewRunCampaign_20260307_105226/Euler_AmrLevel/Exec/Euler1D/results_task3_highres_refresh_20260307_111913/raw/plt_uniform_n3072_np1_r110882,0.006129745514867297,,0.05088555322785057,
-AMR,3072,/Users/yuyangjiao/Desktop/AMReX_Euler_NewRunCampaign_20260307_105226/Euler_AmrLevel/Exec/Euler1D/results_task3_highres_refresh_20260307_111913/raw/plt_uniform_n3072_np1_r110882,0.005667836629697061,0.113,0.05039761859428539,0.014
-Uniform,768,/Users/yuyangjiao/Desktop/AMReX_Euler_NewRunCampaign_20260307_105226/Euler_AmrLevel/Exec/Euler1D/results_task3_highres_refresh_20260307_111913/raw/plt_uniform_n3072_np1_r110882,0.004345561816146081,,0.027992796781949877,
-Uniform,1536,/Users/yuyangjiao/Desktop/AMReX_Euler_NewRunCampaign_20260307_105226/Euler_AmrLevel/Exec/Euler1D/results_task3_highres_refresh_20260307_111913/raw/plt_uniform_n3072_np1_r110882,0.0021491046826392895,1.016,0.01614336461047736,0.794

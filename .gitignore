@@ -1,7 +1,7 @@
 # Local dependencies and private submission records
 /amrex/
 /submission_evidence/
-/final_writeup/report.pdf
+/report/report.pdf
 
 # Build products
 **/tmp_build_dir/
@@ -21,6 +21,17 @@ bl_prof*/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+experiments/**/results_*/
+experiments/**/.last_*
+
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
 
 # OS/editor noise
 .DS_Store

@@ -3,10 +3,11 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TASK_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-CODE_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+SOLVER_ROOT="${REPO_ROOT}/solver"
 cd "${TASK_DIR}"
 
-EXE="${CODE_ROOT}/build/main2d.gnu.MPI.ex"
+EXE="${SOLVER_ROOT}/build/main2d.gnu.MPI.ex"
 if [[ ! -x "${EXE}" ]]; then
   echo "ERROR: executable not found: ${EXE}" >&2
   exit 1
@@ -49,7 +50,7 @@ OMP_NUM_THREADS=1 "${EXE}" inputs \
   "tagging.phigrad=0.08" \
   > "${AMR1536_LOG}" 2>&1
 
-python3 "${SCRIPT_DIR}/task3_fullfield_accuracy.py" \
+python3 "${TASK_DIR}/analysis/task3_fullfield_accuracy.py" \
   --uniform768-plot "$(find "${LOWERRES_DIR}/raw" -maxdepth 1 -type d -name 'plt_uniform_n768_np1_r1*' | sort | tail -n 1)" \
   --uniform1536-plot "$(find "${LOWERRES_DIR}/raw" -maxdepth 1 -type d -name 'plt_uniform_n1536_np1_r1*' | sort | tail -n 1)" \
   --amr1536-plot "$(find "${RESULTS_DIR}/raw" -maxdepth 1 -type d -name 'plt_amr_eff1536_np1_r1*' | sort | tail -n 1)" \

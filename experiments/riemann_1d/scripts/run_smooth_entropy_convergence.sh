@@ -3,13 +3,14 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TASK_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-CODE_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+SOLVER_ROOT="${REPO_ROOT}/solver"
 cd "${TASK_DIR}"
 
-EXE="${CODE_ROOT}/build/main2d.gnu.MPI.ex"
+EXE="${SOLVER_ROOT}/build/main2d.gnu.MPI.ex"
 if [[ ! -x "${EXE}" ]]; then
   echo "ERROR: executable not found: ${EXE}" >&2
-  echo "Build first with: make -j8" >&2
+  echo "Build first with: make -C \"${SOLVER_ROOT}/build\" -j8 AMREX_HOME=/path/to/amrex" >&2
   exit 1
 fi
 
@@ -133,7 +134,7 @@ for n in 128 256 512; do
   echo "DONE N=${n} final=${final_plot} ref=${ref_plot}"
 done
 
-python3 "${SCRIPT_DIR}/smooth_entropy_convergence.py" \
+python3 "${TASK_DIR}/analysis/smooth_entropy_convergence.py" \
   --results-dir "${RESULTS_DIR}" \
   --fcompare-exe "${FCOMPARE}"
 

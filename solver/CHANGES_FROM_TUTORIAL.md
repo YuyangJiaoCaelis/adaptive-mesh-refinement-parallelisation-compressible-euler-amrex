@@ -69,9 +69,9 @@ These are trimmed build files needed to compile the included solver sources agai
 
 The tutorial does not provide the task runners or post-processing used for this report. The following directories were written for this project to reproduce the quoted report data:
 
-- `task1/`
-- `task2/`
-- `task3/`
+- `experiments/riemann_1d/`
+- `experiments/orientation_2d/`
+- `experiments/quadrant_scaling/`
 
 These contain:
 

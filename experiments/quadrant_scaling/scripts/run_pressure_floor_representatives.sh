@@ -3,10 +3,11 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TASK_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-CODE_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+SOLVER_ROOT="${REPO_ROOT}/solver"
 cd "${TASK_DIR}"
 
-EXE="${CODE_ROOT}/build/main2d.gnu.MPI.ex"
+EXE="${SOLVER_ROOT}/build/main2d.gnu.MPI.ex"
 RESULTS_DIR="${1:-${TASK_DIR}/results_pressure_floor_representatives_$(date +%Y%m%d_%H%M%S)}"
 mkdir -p "${RESULTS_DIR}"/{logs,raw,checks}
 

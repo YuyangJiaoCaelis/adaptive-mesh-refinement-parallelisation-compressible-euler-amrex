@@ -3,13 +3,14 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TASK_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-CODE_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+SOLVER_ROOT="${REPO_ROOT}/solver"
 cd "${TASK_DIR}"
 
-EXE="${CODE_ROOT}/build/main2d.gnu.MPI.ex"
+EXE="${SOLVER_ROOT}/build/main2d.gnu.MPI.ex"
 if [[ ! -x "${EXE}" ]]; then
   echo "ERROR: executable not found: ${EXE}" >&2
-  echo "Build first with: make -j8" >&2
+  echo "Build first with: make -C \"${SOLVER_ROOT}/build\" -j8 AMREX_HOME=/path/to/amrex" >&2
   exit 1
 fi
 
@@ -127,7 +128,7 @@ run_case() {
   local exact="${RESULTS_DIR}/${mode}_t${test_id}_n${eff_n}_exact.csv"
 
   if [[ "${mode}" == "uniform" ]]; then
-    python3 postprocess_1d.py \
+    python3 "${TASK_DIR}/analysis/postprocess_1d.py" \
       --plotfile "${plt}" \
       --out "${derived}" \
       --inputs "${input_file}" \
@@ -136,7 +137,7 @@ run_case() {
   else
     local slice="${RESULTS_DIR}/${mode}_t${test_id}_n${eff_n}.slice.dat"
     "${FEXTRACT}" -s "${slice}" -v "rho momx momy E" "${plt}" > /dev/null 2>&1
-    python3 postprocess_1d.py \
+    python3 "${TASK_DIR}/analysis/postprocess_1d.py" \
       --slice "${slice}" \
       --out "${derived}" \
       --inputs "${input_file}" \
@@ -156,7 +157,7 @@ for mode in uniform amr; do
   done
 done
 
-python3 "${SCRIPT_DIR}/toro1d_error_table.py" \
+python3 "${TASK_DIR}/analysis/toro1d_error_table.py" \
   --results-dir "${RESULTS_DIR}" \
   --out-csv "toro1d_errors.csv" \
   --out-md "toro1d_errors.md"
