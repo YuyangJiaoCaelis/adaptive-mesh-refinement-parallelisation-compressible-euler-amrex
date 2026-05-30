@@ -1,0 +1,50 @@
+# ------------------  INPUTS TO MAIN PROGRAM  -------------------
+max_step = 100000
+stop_time = 0.035
+
+# PROBLEM SIZE & GEOMETRY
+geometry.is_periodic =  0  1
+geometry.coord_sys   =  0       # 0 => cart
+geometry.prob_lo     =  0.0  0.0
+geometry.prob_hi     =  1.0  1.0
+amr.n_cell = 400 4
+
+# TIME STEP CONTROL
+adv.cfl            = 0.4
+# VERBOSITY
+adv.v              = 0
+amr.v              = 0
+adv.do_reflux      = 0
+adv.force_1d       = 1
+#amr.grid_log         = grdlog  # name of grid logging file
+
+# REFINEMENT / REGRIDDING
+amr.max_level       = 0
+amr.ref_ratio       = 2 2 2 2
+amr.regrid_int      = 2       # how often to regrid
+amr.blocking_factor = 8
+amr.max_grid_size   = 256
+
+# CHECKPOINT FILES
+amr.checkpoint_files_output = 0     # 0 will disable checkpoint files
+amr.check_file              = chk   # root name of checkpoint file
+amr.check_int               = 10    # number of timesteps between checkpoints
+
+# PLOTFILES
+amr.plot_file = plt_t1_400
+amr.plot_file = plt_t1_400
+amr.plot_int = 20
+
+# TRACER PARTICLES
+adv.do_tracers = 0
+
+# PROBLEM PARAMETERS
+prob.test  = 4
+prob.gamma = 1.4
+prob.x0    = 0.5
+
+# ERROR TAGGING
+tagging.phierr =  1.1  1.2  1.5
+tagging.max_phierr_lev = 10
+adv.host_update = 0
+adv.debug_state = 0

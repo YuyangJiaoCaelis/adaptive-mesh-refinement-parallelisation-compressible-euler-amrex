@@ -1,0 +1,9 @@
+family,effective_N,diagnostic,reference,L1_error,L2_error
+Uniform,768,"rho(x, y=0.5)","Repeated uniform reference (N=3072, p=1)",0.004340423407104124,0.01732041034028954
+Uniform,768,"rho(x=0.5, y)","Repeated uniform reference (N=3072, p=1)",0.004340423407105181,0.017320410340289954
+Uniform,1536,"rho(x, y=0.5)","Repeated uniform reference (N=3072, p=1)",0.0033299207624425922,0.012835598323978141
+Uniform,1536,"rho(x=0.5, y)","Repeated uniform reference (N=3072, p=1)",0.0033299207624428056,0.012835598323978525
+AMR,1536,"rho(x, y=0.5)","Repeated uniform reference (N=3072, p=1)",0.006041530008792723,0.018487223477121048
+AMR,1536,"rho(x=0.5, y)","Repeated uniform reference (N=3072, p=1)",0.006506777229161259,0.02255616179448741
+AMR,3072,"rho(x, y=0.5)","Repeated uniform reference (N=3072, p=1)",0.00421770040945914,0.027217975982601807
+AMR,3072,"rho(x=0.5, y)","Repeated uniform reference (N=3072, p=1)",0.004708723521970851,0.025649028950818425

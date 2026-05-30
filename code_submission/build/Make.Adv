@@ -1,0 +1,31 @@
+# Minimal AMReX build file for the portfolio version
+AMREX_HOME ?= /path/to/amrex
+ADR_DIR    ?= ..
+
+TOP := $(ADR_DIR)
+
+EBASE := main
+
+include $(AMREX_HOME)/Tools/GNUMake/Make.defs
+
+Bdirs   := shared_solver shared_solver/Src_K
+Bpack   += $(foreach dir, $(Bdirs), $(TOP)/$(dir)/Make.package)
+Blocs   += $(foreach dir, $(Bdirs), $(TOP)/$(dir))
+
+include $(Bpack)
+
+INCLUDE_LOCATIONS += $(Blocs)
+VPATH_LOCATIONS   += $(Blocs)
+
+Pdirs   := Base Boundary AmrCore Amr
+ifeq ($(USE_PARTICLES),TRUE)
+    Pdirs += Particle
+endif
+Ppack   += $(foreach dir, $(Pdirs), $(AMREX_HOME)/Src/$(dir)/Make.package)
+
+include $(Ppack)
+
+all: $(executable)
+	@echo SUCCESS
+
+include $(AMREX_HOME)/Tools/GNUMake/Make.rules

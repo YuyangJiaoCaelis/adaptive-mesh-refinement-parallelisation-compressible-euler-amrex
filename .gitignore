@@ -1,0 +1,29 @@
+# Local dependencies and private submission records
+/amrex/
+/submission_evidence/
+/final_writeup/report.pdf
+
+# Build products
+**/tmp_build_dir/
+**/main2d.gnu.MPI.ex
+**/*.o
+**/*.d
+**/*.mod
+
+# AMReX runtime output
+plt*/
+chk*/
+Backtrace.*
+bl_prof*/
+
+# Generated logs/caches
+*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# OS/editor noise
+.DS_Store
+.vscode/
+.idea/
+*~

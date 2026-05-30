@@ -1,0 +1,5 @@
+Task-2 2D matched-resolution setup:
+- Uniform: amr.n_cell = 400 400, amr.max_level = 0
+- AMR:     amr.n_cell = 200 200, amr.max_level = 1, amr.ref_ratio = 2
+- Effective finest spacing is matched at approximately 1/400 in each direction.
+- amr.blocking_factor = 8 divides both 400 and 200 exactly.
